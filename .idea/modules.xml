@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/smartos_exporter.iml" filepath="$PROJECT_DIR$/smartos_exporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartos_exporter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/smartos_exporter_main.iml" group="smartos_exporter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartos_exporter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/smartos_exporter_test.iml" group="smartos_exporter" />
+    </modules>
+  </component>
+</project>
