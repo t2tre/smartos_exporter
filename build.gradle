@@ -12,6 +12,7 @@ sourceCompatibility = '1.8'
 mainClassName = 'io.vertx.core.Launcher'
 
 def vertxVersion = '3.5.1'
+def prometheusClientVersion = '0.3.0'
 def mainVerticleName = 'nu.ltd.fp.se.SmartOSExporter'
 def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
@@ -20,6 +21,9 @@ dependencies {
   compile "io.vertx:vertx-core:$vertxVersion"
   compile "io.vertx:vertx-web:$vertxVersion"
   compile "io.vertx:vertx-config:$vertxVersion"
+  compile "io.prometheus:simpleclient:$prometheusClientVersion"
+  compile "io.prometheus:simpleclient_common:$prometheusClientVersion"
+  compile "io.prometheus:simpleclient_hotspot:$prometheusClientVersion"
   testCompile "junit:junit:4.12"
   testCompile "io.vertx:vertx-unit:$vertxVersion"
 }
