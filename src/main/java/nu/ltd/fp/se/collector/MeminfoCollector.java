@@ -73,7 +73,7 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
       // Skip the 1st 3 lines in the meminfo file
       while ((line = reader.readLine()) != null) {
         System.out.println("DEBUG: line=" + line);
-        if (i >= 2) {
+        if (i > 2) {
           String[] tokens = line.split(" ");
           System.out.println("DEBUG: tokens=" + tokens);
           String[] fieldNameTokens = tokens[0].split(":");
