@@ -53,7 +53,8 @@ public class LoadAverageCollector extends AbstractMetricCollector implements Met
     load1mGauge.set(getLoadAverage(0));
     load5mGauge.set(getLoadAverage(1));
     load15mGauge.set(getLoadAverage(2));
-    // Nothing to be done, call next collector
+
+    // Call next collector
     if (this.getNextCollector() != null) {
       this.getNextCollector().collectMetric();
     }
