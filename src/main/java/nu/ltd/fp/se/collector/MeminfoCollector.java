@@ -71,16 +71,23 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
       String line = null;
       int i = 0;
       // Skip the 1st 3 lines in the meminfo file
-      while ((line = reader.readLine()) != null && i > 2) {
-        String[] tokens = line.split(" ");
-        String[] fieldNameTokens = tokens[0].split(":");
-        memInfo.put(fieldNameTokens[0], Double.parseDouble(tokens[1]) * 1024);
+      while ((line = reader.readLine()) != null) {
+        System.out.println("DEBUG: line=" + line);
+        if (i >= 2) {
+          String[] tokens = line.split(" ");
+          System.out.println("DEBUG: tokens=" + tokens);
+          String[] fieldNameTokens = tokens[0].split(":");
+          System.out.println("DEBUG: fieldNameTokens=" + fieldNameTokens);
+          memInfo.put(fieldNameTokens[0], Double.parseDouble(tokens[1]) * 1024);
+        }
         i++;
       }
     } catch (Exception e) {
+      System.out.println("got exception here..");
     } finally {
       try { if (reader != null) { reader.close(); } } catch (Exception e) {}
     }
+    System.out.println("HASH: " + memInfo);
   }
 
   public void collectMetric() {
