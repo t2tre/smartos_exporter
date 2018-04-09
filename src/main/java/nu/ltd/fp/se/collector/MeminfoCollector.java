@@ -13,43 +13,43 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
     .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field MemTotal.").register();
 
   static final Gauge meminfoMemFreeGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field MemFree.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_MemFree").help("Memory information field MemFree.").register();
 
   static final Gauge meminfoMemSharedGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field MemShared.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_MemShared").help("Memory information field MemShared.").register();
 
   static final Gauge meminfoBuffersGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field Buffers.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_Buffers").help("Memory information field Buffers.").register();
 
   static final Gauge meminfoCachedGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field Cached.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_Cached").help("Memory information field Cached.").register();
 
   static final Gauge meminfoSwapCachedGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field SwapCached.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_SwapCached").help("Memory information field SwapCached.").register();
 
   static final Gauge meminfoActiveGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field Active.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_Active").help("Memory information field Active.").register();
 
   static final Gauge meminfoInactiveGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field Inactive.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_Inactive").help("Memory information field Inactive.").register();
 
   static final Gauge meminfoHighTotalGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field HighTotal.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_HighTotal").help("Memory information field HighTotal.").register();
 
   static final Gauge meminfoHighFreeGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field HighFree.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_HighFree").help("Memory information field HighFree.").register();
 
   static final Gauge meminfoLowTotalGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field LowTotal.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_LowTotal").help("Memory information field LowTotal.").register();
 
   static final Gauge meminfoLowFreeGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field LowFree.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_LowFree").help("Memory information field LowFree.").register();
 
   static final Gauge meminfoSwapTotalGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field SwapTotal.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_SwapTotal").help("Memory information field SwapTotal.").register();
 
   static final Gauge meminfoSwapFreeGauge = Gauge.build()
-    .name(Constant.EXPORTER_NAMESPACE + "memory_MemTotal").help("Memory information field SwapFree.").register();
+    .name(Constant.EXPORTER_NAMESPACE + "memory_SwapFree").help("Memory information field SwapFree.").register();
 
   private HashMap<String, Double> memInfo;
 
