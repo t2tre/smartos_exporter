@@ -83,7 +83,7 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
         i++;
       }
     } catch (Exception e) {
-      System.out.println("got exception here..");
+      System.out.println("got exception here.." + e.getMessage());
     } finally {
       try { if (reader != null) { reader.close(); } } catch (Exception e) {}
     }
