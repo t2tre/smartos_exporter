@@ -15,9 +15,10 @@ public class SystemMetrics {
     MetricCollector unameCollector = new UnameCollector(smartOSCollector);
     MetricCollector loadAverageCollector = new LoadAverageCollector(unameCollector);
     MetricCollector timeCollector = new TimeCollector(loadAverageCollector);
+    MetricCollector meminfoCollector = new MeminfoCollector(timeCollector);
 
     // this.metricCollector should be set to the last one
-    this.metricCollector = timeCollector;
+    this.metricCollector = meminfoCollector;
   }
 
   public void pollCollectorChain() {
