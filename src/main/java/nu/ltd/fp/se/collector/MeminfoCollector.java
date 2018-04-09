@@ -55,6 +55,20 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
 
   public MeminfoCollector() {
     this.memInfo = new HashMap<String, Double>();
+    memInfo.put("MemTotal:", 0.0);
+    memInfo.put("MemFree:", 0.0);
+    memInfo.put("MemShared:", 0.0);
+    memInfo.put("Buffers:", 0.0);
+    memInfo.put("Cached:", 0.0);
+    memInfo.put("SwapCached:", 0.0);
+    memInfo.put("Active:", 0.0);
+    memInfo.put("Inactive:", 0.0);
+    memInfo.put("HighTotal:", 0.0);
+    memInfo.put("HighFree:", 0.0);
+    memInfo.put("LowTotal:", 0.0);
+    memInfo.put("LowFree:", 0.0);
+    memInfo.put("SwapTotal:", 0.0);
+    memInfo.put("SwapFree:", 0.0);
   }
 
   public MeminfoCollector(MetricCollector nextCollector) {
@@ -72,13 +86,9 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
       int i = 0;
       // Skip the 1st 3 lines in the meminfo file
       while ((line = reader.readLine()) != null) {
-        System.out.println("DEBUG: line=" + line);
         if (i > 2) {
           String[] tokens = line.split(" ");
-          System.out.println("DEBUG: tokens=" + tokens);
-          String[] fieldNameTokens = tokens[0].split(":");
-          System.out.println("DEBUG: fieldNameTokens=" + fieldNameTokens);
-          memInfo.put(fieldNameTokens[0], Double.parseDouble(tokens[1]) * 1024);
+          memInfo.put(tokens[0], Double.parseDouble(tokens[1]) * 1024);
         }
         i++;
       }
@@ -87,26 +97,25 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
     } finally {
       try { if (reader != null) { reader.close(); } } catch (Exception e) {}
     }
-    System.out.println("HASH: " + memInfo);
   }
 
   public void collectMetric() {
     pollMemInfo();
 
-    meminfoMemTotalGauge.set(memInfo.get("MemTotal"));
-    meminfoMemFreeGauge.set(memInfo.get("MemFree"));
-    meminfoMemSharedGauge.set(memInfo.get("MemShared"));
-    meminfoBuffersGauge.set(memInfo.get("Buffers"));
-    meminfoCachedGauge.set(memInfo.get("Cached"));
-    meminfoSwapCachedGauge.set(memInfo.get("SwapCached"));
-    meminfoActiveGauge.set(memInfo.get("Active"));
-    meminfoInactiveGauge.set(memInfo.get("Inactive"));
-    meminfoHighTotalGauge.set(memInfo.get("HighTotal"));
-    meminfoHighFreeGauge.set(memInfo.get("HighFree"));
-    meminfoLowTotalGauge.set(memInfo.get("LowTotal"));
-    meminfoLowFreeGauge.set(memInfo.get("LowFree"));
-    meminfoSwapTotalGauge.set(memInfo.get("SwapTotal"));
-    meminfoSwapFreeGauge.set(memInfo.get("SwapFree"));
+    meminfoMemTotalGauge.set(memInfo.get("MemTotal:"));
+    meminfoMemFreeGauge.set(memInfo.get("MemFree:"));
+    meminfoMemSharedGauge.set(memInfo.get("MemShared:"));
+    meminfoBuffersGauge.set(memInfo.get("Buffers:"));
+    meminfoCachedGauge.set(memInfo.get("Cached:"));
+    meminfoSwapCachedGauge.set(memInfo.get("SwapCached:"));
+    meminfoActiveGauge.set(memInfo.get("Active:"));
+    meminfoInactiveGauge.set(memInfo.get("Inactive:"));
+    meminfoHighTotalGauge.set(memInfo.get("HighTotal:"));
+    meminfoHighFreeGauge.set(memInfo.get("HighFree:"));
+    meminfoLowTotalGauge.set(memInfo.get("LowTotal:"));
+    meminfoLowFreeGauge.set(memInfo.get("LowFree:"));
+    meminfoSwapTotalGauge.set(memInfo.get("SwapTotal:"));
+    meminfoSwapFreeGauge.set(memInfo.get("SwapFree:"));
 
     // Call next collector
     if (this.getNextCollector() != null) {
