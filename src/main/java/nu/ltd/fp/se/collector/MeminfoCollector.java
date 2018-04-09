@@ -88,6 +88,8 @@ public class MeminfoCollector extends AbstractMetricCollector implements MetricC
       while ((line = reader.readLine()) != null) {
         if (i > 2) {
           String[] tokens = line.split(" ");
+          System.out.println("DEBUG: tokens[0]" + tokens[0]);
+          System.out.println("DEBUG: tokens[1]" + tokens[1]);
           memInfo.put(tokens[0], Double.parseDouble(tokens[1]) * 1024);
         }
         i++;
