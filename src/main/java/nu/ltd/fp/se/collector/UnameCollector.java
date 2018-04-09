@@ -1,10 +1,11 @@
 package nu.ltd.fp.se.collector;
 
 import io.prometheus.client.Gauge;
+import nu.ltd.fp.se.Constant;
 
 public class UnameCollector extends AbstractMetricCollector implements MetricCollector {
   static final Gauge unameGauge = Gauge.build()
-    .name("node_uname_info")
+    .name(Constant.EXPORTER_NAMESPACE + "uname_info")
     .help("Labeled system information as provided by the uname system call")
     .labelNames("domainname", "machine", "nodename", "release", "sysname", "version")
     .register();

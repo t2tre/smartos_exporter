@@ -1,10 +1,11 @@
 package nu.ltd.fp.se.collector;
 
 import io.prometheus.client.Gauge;
+import nu.ltd.fp.se.Constant;
 
 public class SmartOSCollector extends AbstractMetricCollector implements MetricCollector {
   static final Gauge unameGauge = Gauge.build()
-    .name("smartos_info")
+    .name(Constant.EXPORTER_NAMESPACE + "smartos_info")
     .help("Collector name")
     .labelNames("collector_name")
     .register();
